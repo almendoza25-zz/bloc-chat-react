@@ -3,10 +3,11 @@
  }
 
 
-.rows {
-  border: solid gray;
-  background-color: ghostwhite;
-}
+ .rows {
+   display: flex;
+   border: solid gray;
+   background-color: ghostwhite;
+ }
 
 .room-list {
    background-color: green;

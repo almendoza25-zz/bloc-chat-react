@@ -36,9 +36,9 @@ openModal() {
  }
 
  createRoom(event) {
+   event.preventDefault();
    this.roomsRef.push({name: this.state.roomName});
    this.setState({roomName: ''});
-   event.preventDefault();
  }
 
 render() {
@@ -46,10 +46,11 @@ render() {
     <div>
          <section className="rooms">
            {this.state.rooms.map(room => (
-             <p key={room.key}>{room.name}</p>
+             <p key={room.key} onClick={() => this.props.setActiveRoom(room)}>
+              {room.name}
+             </p>
            ))}
          </section>
-
          <section>
            <input
              className="add-room-button"
@@ -67,12 +68,7 @@ render() {
            effect="fadeInUp"
            onClickAway={() => this.closeModal()}
          >
-           <form
-             className="add-room-form"
-             onSubmit={() => {
-               this.createRoom();
-             }}
-           >
+           <form className="add-room-form" onSubmit={this.createRoom}>
              <label>
                Enter New Room Name:
                <input
@@ -83,16 +79,15 @@ render() {
                  onChange={this.handleChange}
                />
              </label>
-             <input className="submit-button" type="submit" />
+             <input className="submit-button" type="submit" onClick={() => this.closeModal()} />
            </form>
-
            <button className="close-modal-button" type="button" onClick={() => this.closeModal()}>
-             Close
+             Cancel
            </button>
          </Modal>
        </div>
-  );
-}
+     );
+   }
 }
 
 export default RoomList;
