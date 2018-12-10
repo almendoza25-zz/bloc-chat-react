@@ -10,7 +10,7 @@
  }
 
 .room-list {
-   background-color: green;
+   background-color: #FFDAB9;
    border: solid gray;
    border-radius: 5px;
    width: 30%;
@@ -18,7 +18,7 @@
  }
 
  .message-list {
-    background-color: pink;
+    background-color: #ffffe0;
     border: solid gray;
     border-radius: 5px;
     width: 70%;
